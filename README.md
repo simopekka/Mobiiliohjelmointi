@@ -1,2 +1,2 @@
 # Mobiiliohjelmointi
-Morjens
+Mobiiliohjelmoinnin kurssi, syksy 2022
