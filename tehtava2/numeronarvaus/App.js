@@ -11,12 +11,7 @@ export default function App() {
   const [rnm, setRnm] = useState(Math.floor(Math.random() * 100) + 1);
 
 
-  
 
-  const sekoita = () => {
-    num = Math.floor(Math.random() * 100) + 1;
-    setRnm(num);
-  }
   
   const selvitys = () => {
     if (arvaus < rnm) {
@@ -26,10 +21,10 @@ export default function App() {
       setTulostus('Your quess ' + arvaus + ' is too high')
       setCounter(counter + 1)
     } else {
-      Alert.alert('You guessed the number in ' + counter + ' numbers');
+      Alert.alert('You guessed the number in ' + counter + ' guesses');
       setCounter(1);
       setTulostus('')
-      sekoita();
+      setRnm(Math.floor(Math.random() * 100) + 1);
     }
   }
 
