@@ -2,8 +2,8 @@ import { StyleSheet, FlatList, TextInput, Button, View, Text } from 'react-nativ
 import {useState} from 'react';
 export default function App() {
 
-  const [num1, setNum1] = useState('');
-  const [num2, setNum2] = useState('');
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
   const [data, setData] = useState([]);
 
   const plus = () => {
@@ -30,15 +30,13 @@ export default function App() {
       onChangeText={setNum2}
       value={num2}
       />
-      <View>
-        <Button onPress={plus}title='+' />
-        <Button onPress={minus}title='-' />
-        <Text>History</Text>
-        <FlatList
-          data={data}
-          renderItem={({item}) =><Text>{item.key}</Text>}  
-          keyExtractor={(item, index) => index.toString()} />
-        </View>
+      <Button onPress={plus}title='+' />
+      <Button onPress={minus}title='-' />
+      <Text>History</Text>
+      <FlatList 
+        data={data}
+        renderItem={({item}) =><Text>{item.key}</Text>}  
+        keyExtractor={(item, index) => index.toString()} />
     </View>
   );
 }
