@@ -8,7 +8,7 @@ export default function App() {
 
   const convert = () => {
     var myHeaders = new Headers();
-    myHeaders.append("apikey", "_________________");
+    myHeaders.append("apikey", "_____________");
 
     var requestOptions = {
       method: 'GET',
@@ -24,8 +24,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Convert diffrent currencies to euros</Text>
-      <Text>Result: {result[result.length-10]}{result[result.length-9]}{result[result.length-7]}{result[result.length-7]}{result[result.length-6]}{result[result.length-5]}{result[result.length-4]}€</Text>
+      <Text>Convert different currencies to euros</Text>
+      <Text>Result: {result[result.length-11]}{result[result.length-10]}{result[result.length-9]}{result[result.length-7]}{result[result.length-7]}{result[result.length-6]}{result[result.length-5]}{result[result.length-4]}€</Text>
       <TextInput
         placeholder={'USD, NOK, SEK, etc...'}
         style={{width: 200, borderColour: 'gray', borderWidth: 1}}
