@@ -7,20 +7,6 @@ export default function App() {
 
   const [location, setLocation] = useState('');
   const api = '___________';
-  const [lat, setLat] = useState(60.200690);
-  const [lon, setLon] = useState(24.934302);
-
-  const fetchLocation = () => {
-    fetch (`http://www.mapquestapi.com/geocoding/v1/address?key=${api}&location=${location}`)
-      .then((response) => response.json())
-      .then((json) => {
-        setLat(json.results[0].locations[0].latLng.lat)
-        setLon(json.results[0].locations[0].latLng.lng)
-      })
-      .catch(error => console.log('error', error));
-    
-  }
-
   const [region, setRegion] = useState({
     latitude: 60.200690,
     longitude: 24.934302,
@@ -28,6 +14,18 @@ export default function App() {
     longitudeDelta: 0.0121
   });
 
+  const fetchLocation = () => {
+    fetch (`http://www.mapquestapi.com/geocoding/v1/address?key=${api}&location=${location}`)
+      .then((response) => response.json())
+      .then((responseData) => {
+        setRegion({
+          ...region,
+          latitude:responseData.results[0].locations[0].latLng.lat,
+          longitude:responseData.results[0].locations[0].latLng.lng});
+      })
+      .catch(error => console.log('error', error));
+    
+  }
 
   return (
     <View style={{flex: 6}}>
